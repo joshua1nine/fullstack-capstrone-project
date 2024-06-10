@@ -12,10 +12,10 @@ function MainPage() {
       try {
         let url = `${urlConfig.backendUrl}/api/gifts`;
         const res = await fetch(url);
-        if (!response.ok) {
-          throw new Error(`HTTP error; ${response.status}`);
+        if (!res.ok) {
+          throw new Error(`HTTP error; ${res.status}`);
         }
-        const data = await response.json();
+        const data = await res.json();
         setGifts(data);
       } catch (err) {
         console.log("Fetch error" + err.message);
